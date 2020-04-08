@@ -1,7 +1,7 @@
 class Company < ApplicationRecord
     validates_presence_of :name
 
-    has_many :companyusers
-    has_many :jobs
-    has_many :users through: :companyusers
+    has_many :companyusers, dependent: :destroy
+    has_many :jobs, dependent: :destroy
+    has_many :users, through: :companyusers
 end

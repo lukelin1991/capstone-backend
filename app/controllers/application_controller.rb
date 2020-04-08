@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::API
     def encode_token(payload)
-        JWR.encode(payload, 'secret recipe')
+        JWT.encode(payload, 'secret recipe')
     end
 
     def auth_header
@@ -31,4 +31,5 @@ class ApplicationController < ActionController::API
 
     def authorized
         render json: { error: 'Please log in' }, status: :unauthorized unless logged_in?
+    end
 end
