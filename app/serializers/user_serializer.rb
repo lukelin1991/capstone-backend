@@ -1,5 +1,5 @@
 class UserSerializer < ActiveModel::Serializer
-  attributes :username, :email
+  attributes :id, :username, :email
 
   has_many :companies, through: :companyusers
   has_many :companyusers
