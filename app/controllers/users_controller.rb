@@ -28,6 +28,12 @@ class UsersController < ApplicationController
         render json: @users
     end
 
+    def destroy
+        @user = User.find_by(id: params[:id])
+        render json: @user
+        @user.destroy
+    end
+
     private
 
     def persisted_params
